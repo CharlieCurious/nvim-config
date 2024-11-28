@@ -54,6 +54,10 @@ require('pckr').add{
         dependencies = { 'nvim-tree/nvim-web-devicons' }
     },
 
+    {
+        'nvim-lualine/lualine.nvim',
+    }
+
 }
 
 
