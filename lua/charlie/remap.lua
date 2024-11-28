@@ -22,3 +22,18 @@ vim.keymap.set("v", "<leader>y", "\"+y")
 -- delete without copying
 vim.keymap.set("n", "<leader>d", "\"_dP")
 vim.keymap.set("v", "<leader>d", "\"_dP")
+
+-- split
+vim.keymap.set("n", "<leader>sv", ":vsplit | enew<CR>")
+vim.keymap.set("n", "<leader>sh", ":belowright split | enew<CR>")
+
+-- Resize splits easily
+vim.keymap.set('n', '<leader>+', ':resize +5<CR>')
+vim.keymap.set('n', '<leader>-', ':resize -5<CR>')
+vim.keymap.set('n', '<leader>>', ':vertical resize +5<CR>')
+vim.keymap.set('n', '<leader><', ':vertical resize -5<CR>')
+
+
+-- open terminal
+vim.keymap.set("n", "<C-t>", ":belowright split | terminal<CR>:resize 10<CR>i")
+
