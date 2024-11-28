@@ -19,6 +19,9 @@ cmp.setup({
         ['<C-y>'] = cmp.mapping.confirm({ select = true }),
         ["<C-Space>"] = cmp.mapping.complete(),
     }),
+    completion = {
+        keyword_length = 2,
+    },
 })
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()

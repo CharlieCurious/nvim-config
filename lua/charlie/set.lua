@@ -11,3 +11,5 @@ vim.opt.smartindent = true
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
+
+vim.o.pumheight = 5
