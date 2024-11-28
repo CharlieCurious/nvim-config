@@ -46,6 +46,14 @@ require('pckr').add{
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
+
+    -- NvimTree
+    'nvim-tree/nvim-web-devicons',
+    {
+        'nvim-tree/nvim-tree.lua',
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
+
 }
 
 

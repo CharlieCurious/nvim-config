@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-   ensure_installed = { "lua_ls", "clangd" }
+   ensure_installed = { "lua_ls", "clangd", "csharp_ls" }
 })
 
 local on_attach = function(_, _)
@@ -19,4 +19,18 @@ require("lspconfig").lua_ls.setup {
 
 require("lspconfig").clangd.setup {
    on_attach = on_attach
+}
+
+-- Setup csharp_ls with additional configuration
+local util = require 'lspconfig.util'
+require("lspconfig").csharp_ls.setup {
+  cmd = { 'csharp-ls' },  -- Command to start the C# language server
+  filetypes = { 'cs' },    -- Specify the filetypes it applies to
+  root_dir = function(fname)
+    return util.root_pattern('*.sln')(fname) or util.root_pattern('*.csproj')(fname)
+  end,
+  init_options = {
+    AutomaticWorkspaceInit = true,  -- Automatically initialize the workspace
+  },
+  on_attach = on_attach,  -- Reuse the existing on_attach function for keybindings
 }
