@@ -16,15 +16,13 @@ end
 
 bootstrap_pckr()
 
-local cmd = require("pckr.loader.cmd")
-
 require('pckr').add{
     -- color scheme
     {
-        'rose-pine/neovim',
-        name = 'rose-pine',
+        'Mofiqul/vscode.nvim',
+        name = 'vscode',
         config = function()
-            vim.cmd('colorscheme rose-pine')
+            vim.cmd('colorscheme vscode')
         end
     },
 
@@ -56,10 +54,13 @@ require('pckr').add{
         dependencies = { 'nvim-tree/nvim-web-devicons' }
     },
 
+    -- Lualine
     {
         'nvim-lualine/lualine.nvim',
-    }
+    },
 
+    -- Fugitive
+    'tpope/vim-fugitive',
 }
 
 
