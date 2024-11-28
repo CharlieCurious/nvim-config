@@ -1,7 +1,27 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-   ensure_installed = { "lua_ls", "clangd", "csharp_ls" }
+    ensure_installed = {
+        "lua_ls",
+        "clangd",
+        "csharp_ls",
+    }
 })
+
+local cmp = require("cmp")
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
+cmp.setup({
+    sources = {
+        { name = 'nvim_lsp' }
+    },
+    mapping = cmp.mapping.preset.insert({
+        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+        ["<C-Space>"] = cmp.mapping.complete(),
+    }),
+})
+
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local on_attach = function(_, _)
    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
@@ -14,11 +34,13 @@ local on_attach = function(_, _)
 end
 
 require("lspconfig").lua_ls.setup {
-   on_attach = on_attach
+   on_attach = on_attach,
+   capabilities = capabilities
 }
 
 require("lspconfig").clangd.setup {
-   on_attach = on_attach
+   on_attach = on_attach,
+   capabilties = capabilities
 }
 
 -- Setup csharp_ls with additional configuration
@@ -33,4 +55,6 @@ require("lspconfig").csharp_ls.setup {
     AutomaticWorkspaceInit = true,  -- Automatically initialize the workspace
   },
   on_attach = on_attach,  -- Reuse the existing on_attach function for keybindings
+  capabilties = capabilities
 }
+
