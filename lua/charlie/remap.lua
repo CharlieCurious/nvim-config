@@ -37,3 +37,8 @@ vim.keymap.set('n', '<leader><', ':vertical resize -5<CR>')
 -- open terminal
 vim.keymap.set("n", "<C-t>", ":belowright split | terminal<CR>:resize 10<CR>i")
 
+-- Close all buffers
+vim.keymap.set("n", "<leader>q", ":bufdo bd!<CR>")
+vim.keymap.set("n", "<leader>wq", ":wa | bufdo bd<CR>")
+
+
