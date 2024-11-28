@@ -9,3 +9,16 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- paste-ovewrite w/ changing register value
 vim.keymap.set("x", "<leader>p", "\"_dP")
+
+-- keep the cursor in the same place when jumpint page
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+
+-- copy to system clipboard
+vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("v", "<leader>y", "\"+y")
+
+-- delete without copying
+vim.keymap.set("n", "<leader>d", "\"_dP")
+vim.keymap.set("v", "<leader>d", "\"_dP")
