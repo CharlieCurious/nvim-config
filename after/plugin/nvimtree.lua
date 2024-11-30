@@ -34,5 +34,22 @@ require("nvim-tree").setup({
   },
 })
 
-vim.api.nvim_set_keymap("n", "<C-h>", ":NvimTreeToggle<cr>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "<C-f>", ":NvimTreeFindFile<cr>", {silent = true, noremap = true})
+
+function OpenTree()
+    local api = require('nvim-tree.api')
+    api.tree.toggle({ focus = true })
+    api.tree.collapse_all()
+end
+
+function ExpandToCurrentFile()
+    local api = require('nvim-tree.api')
+    api.tree.toggle({focus = false})
+    api.tree.find_file({ open = true, focus = true })
+end
+
+vim.api.nvim_set_keymap("n", "<C-h>", ":lua OpenTree()<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<C-f>", ":lua ExpandToCurrentFile()<CR>", {silent = true, noremap = true})
+
+
+
+
