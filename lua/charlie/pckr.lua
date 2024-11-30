@@ -69,6 +69,9 @@ require('pckr').add{
 
     -- Fugitive
     'tpope/vim-fugitive',
+
+    -- UndoTree
+    'mbbill/undotree'
 }
 
 
