@@ -18,12 +18,6 @@ require('lualine').setup {
                 'diagnostics',
                 sources = { 'nvim_lsp' },  -- optional: shows LSP diagnostics
             },
-            -- Adding modified status
-            {
-                condition = function()
-                    return vim.bo.modified
-                end,
-            },
         },
         lualine_c = {
             'filename',
