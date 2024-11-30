@@ -22,8 +22,8 @@ vim.keymap.set("n", "<leader>d", "\"_dP")
 vim.keymap.set("v", "<leader>d", "\"_dP")
 
 -- split
-vim.keymap.set("n", "<leader>sv", ":vsplit | enew<CR>")
-vim.keymap.set("n", "<leader>sh", ":belowright split | enew<CR>")
+vim.keymap.set("n", "<leader>sv", ":vsplit<CR>")
+vim.keymap.set("n", "<leader>sh", ":split<CR>")
 
 -- Resize splits easily
 vim.keymap.set('n', '<leader>+', ':resize +5<CR>')
