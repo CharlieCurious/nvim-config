@@ -34,6 +34,13 @@ require('pckr').add{
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
 
+    -- Harpoon
+    {
+        'ThePrimeagen/harpoon',
+        branch = 'harpoon2',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    },
+
     -- Treesitter
     {
         'nvim-treesitter/nvim-treesitter',

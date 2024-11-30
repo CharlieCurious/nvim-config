@@ -39,4 +39,7 @@ vim.keymap.set("n", "<C-t>", ":belowright split | terminal<CR>:resize 10<CR>i")
 vim.keymap.set("n", "<leader>q", ":bufdo bd!<CR>")
 vim.keymap.set("n", "<leader>wq", ":wa | bufdo bd<CR>")
 
+-- Navigate buffers
+vim.keymap.set('n', '<leader><Tab>', ':b#<CR>', { noremap = true, silent = true })
+
 
