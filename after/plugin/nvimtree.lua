@@ -32,6 +32,10 @@ require("nvim-tree").setup({
       return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
     end,
   },
+  git = {
+      enable = true,
+      ignore = false
+  },
 })
 
 
