@@ -19,10 +19,10 @@ bootstrap_pckr()
 require('pckr').add{
     -- color scheme
     {
-        'Mofiqul/vscode.nvim',
-        name = 'vscode',
+        'catppuccin/nvim',
+        name = 'catppuccin',
         config = function()
-            vim.cmd('colorscheme vscode')
+            vim.cmd('colorscheme catppuccin')
         end
     },
 
