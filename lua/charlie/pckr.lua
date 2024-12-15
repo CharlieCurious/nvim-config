@@ -47,13 +47,33 @@ require('pckr').add{
         run = ':TSUpdate'
     },
 
-     -- Mason and LSP configurations
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/nvim-cmp',
+    -- Mason
     'williamboman/mason.nvim',
-    'williamboman/mason-lspconfig.nvim',
-    'neovim/nvim-lspconfig',
-    'Hoffs/omnisharp-extended-lsp.nvim',
+    {
+        'williamboman/mason-lspconfig.nvim',
+        dependencies = { 'williamboman/mason.nvim' }
+    },
+
+    -- LSP
+    {
+        'neovim/nvim-lspconfig',
+        dependencies = { 'williamboman/mason-lspconfig.nvim' }
+    },
+    {
+        'Hoffs/omnisharp-extended-lsp.nvim',
+        dependencies = { 'neovim/nvim-lspconfig' }
+    },
+
+    -- Autocompletion
+    'hrsh7th/cmp-nvim-lsp',
+    {
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+        }
+    },
 
     -- NvimTree
     'nvim-tree/nvim-web-devicons',
@@ -70,22 +90,12 @@ require('pckr').add{
     -- Fugitive
     'tpope/vim-fugitive',
 
+    -- Trouble
+    {
+        'folke/trouble.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
+
     -- UndoTree
     'mbbill/undotree'
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

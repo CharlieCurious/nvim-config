@@ -22,7 +22,7 @@ vim.keymap.set("n", "<leader>d", "\"_dP")
 vim.keymap.set("v", "<leader>d", "\"_dP")
 
 -- split
-vim.keymap.set("n", "<leader>sv", ":vsplit<CR>")
+vim.keymap.set("n", "<leader>sv", ":vsplit<CR><C-w>l")
 vim.keymap.set("n", "<leader>sh", ":split<CR>")
 
 -- Resize splits easily
@@ -42,4 +42,8 @@ vim.keymap.set("n", "<leader>wq", ":wa | bufdo bd<CR>")
 -- Navigate buffers
 vim.keymap.set('n', '<leader><Tab>', ':b#<CR>', { noremap = true, silent = true })
 
-
+-- searching
+vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
