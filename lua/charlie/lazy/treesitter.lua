@@ -8,12 +8,14 @@ return {
                     "c",
                     "cmake",
                     "c_sharp",
+                    "cpp",
                     "lua",
                     "vim",
                     "vimdoc",
                     "query",
                     "markdown",
-                    "markdown_inline"
+                    "markdown_inline",
+                    "glsl"
                 },
 
                 -- Install parsers synchronously (only applied to `ensure_installed`)

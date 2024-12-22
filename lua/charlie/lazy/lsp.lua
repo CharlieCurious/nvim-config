@@ -17,6 +17,7 @@ return {
                 ensure_installed = {
                     "lua_ls",
                     "clangd",
+                    "glsl_analyzer"
                 },
             })
 
@@ -56,7 +57,13 @@ return {
 
             require("lspconfig").clangd.setup {
                 on_attach = on_attach,
-                capabilties = capabilities
+                capabilities = capabilities,
+            }
+
+            require("lspconfig").glsl_analyzer.setup {
+                filetypes = { "glsl", "vert", "frag", "geom" },
+                on_attach = on_attach,
+                capabilities = capabilities,
             }
 
         end

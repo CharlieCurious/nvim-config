@@ -18,3 +18,12 @@ vim.o.pumheight = 5
 -- Disable netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+-- File types
+vim.filetype.add({
+    extension = {
+        vert = "glsl",
+        frag = "glsl",
+        geom = "glsl",
+    },
+})

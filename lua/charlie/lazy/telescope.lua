@@ -10,16 +10,28 @@ return {
 
         dependencies = { 'nvim-lua/plenary.nvim' },
 
-        config = function() 
+        config = function()
             require('telescope').setup({})
 
             local builtin = require('telescope.builtin')
+            local sorters = require('telescope.sorters')
             vim.keymap.set('n', '<leader>fp', builtin.find_files, { desc = 'Telescope find files' })
             vim.keymap.set('n', '<C-p>', builtin.git_files, { desc = 'Telescope find git tracked files' })
             vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find open buffers' })
+
             vim.keymap.set('n', '<leader>fg', function()
-                builtin.grep_string({ search = vim.fn.input("Grep > ") })
-            end)
+                builtin.grep_string()
+            end, { noremap = true, silent = true })
+
+            vim.keymap.set('n', '<leader>ff', function()
+                local opts = {
+                    case_mode = "match",
+                    sorter = sorters.get_substr_matcher({}),
+                }
+                builtin.current_buffer_fuzzy_find(opts)
+            end, { noremap = true, silent = true, desc = 'Custom fuzzy search in current buffer' })
+
+            vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, { noremap = true, silent = true })
 
             local harpoon = require("harpoon")
 
