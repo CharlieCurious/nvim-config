@@ -22,9 +22,17 @@ return {
                 },
             })
 
+            require("luasnip.loaders.from_vscode").lazy_load()
+            local luasnip = require("luasnip")
+
             local cmp = require("cmp")
             local cmp_select = { behavior = cmp.SelectBehavior.Select }
             cmp.setup({
+                snippet = {
+                    expand = function(args)
+                        luasnip.lsp_expand(args.body)
+                    end,
+                },
                 sources = {
                     { name = 'nvim_lsp' }
                 },
@@ -33,6 +41,20 @@ return {
                     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
                     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
                     ["<C-Space>"] = cmp.mapping.complete(),
+                    ["<Tab>"] = cmp.mapping(function(fallback)
+                        if luasnip.expand_or_jumpable() then
+                            luasnip.expand_or_jump()
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
+                    ["<S-Tab>"] = cmp.mapping(function(fallback)
+                        if luasnip.jumpable(-1) then
+                            luasnip.jump(-1)
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
                 }),
                 completion = {
                     keyword_length = 2,
