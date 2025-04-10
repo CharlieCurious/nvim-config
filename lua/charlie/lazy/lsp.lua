@@ -20,7 +20,8 @@ return {
                     "lua_ls",
                     "clangd",
                     "glsl_analyzer",
-                    "omnisharp"
+                    "omnisharp",
+                    "yamlls"
                 },
             })
 

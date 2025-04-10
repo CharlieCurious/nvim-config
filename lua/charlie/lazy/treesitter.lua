@@ -15,7 +15,10 @@ return {
                     "query",
                     "markdown",
                     "markdown_inline",
-                    "glsl"
+                    "glsl",
+                    "yaml",
+                    "javascript",
+                    "python"
                 },
 
                 -- Install parsers synchronously (only applied to `ensure_installed`)
