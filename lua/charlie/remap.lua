@@ -31,6 +31,21 @@ vim.keymap.set('n', '<leader>-', ':resize -5<CR>')
 vim.keymap.set('n', '<leader>>', ':vertical resize +5<CR>')
 vim.keymap.set('n', '<leader><', ':vertical resize -5<CR>')
 
+local maximized = false
+local original_tab = nil
+
+vim.keymap.set("n", "<leader>m", function()
+    if not maximized then
+        original_tab = vim.api.nvim_get_current_tabpage()
+        vim.cmd("tab split")
+        maximized = true
+    else
+        vim.cmd("tabclose")
+        vim.cmd("tabnext" .. original_tab)
+        maximized = false
+    end
+end, { desc = "Toggle maximize window" })
+
 
 -- open terminal
 vim.keymap.set("n", "<C-t>", ":belowright split | terminal<CR>:resize 10<CR>i")

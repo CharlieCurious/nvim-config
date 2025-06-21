@@ -13,7 +13,6 @@ return {
             "Hoffs/omnisharp-extended-lsp.nvim"
         },
         config = function()
-
             require("mason").setup()
             require("mason-lspconfig").setup({
                 ensure_installed = {
@@ -21,7 +20,8 @@ return {
                     "clangd",
                     "glsl_analyzer",
                     "omnisharp",
-                    "yamlls"
+                    "yamlls",
+                    "pylsp"
                 },
             })
 
@@ -77,6 +77,11 @@ return {
             end
 
             require("lspconfig").lua_ls.setup {
+                on_attach = on_attach,
+                capabilities = capabilities
+            }
+
+            require("lspconfig").pylsp.setup {
                 on_attach = on_attach,
                 capabilities = capabilities
             }
@@ -137,7 +142,6 @@ return {
                 -- true
                 analyze_open_documents_only = false,
             }
-
         end
     }
 
